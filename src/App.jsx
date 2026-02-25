@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
-
+import useReveal from "./hooks/useReveal";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Experience from "./sections/Experience";
@@ -12,6 +12,7 @@ import Certificates from "./sections/Certificates";
 import Contact from "./sections/Contact";
 
 export default function App() {
+   useReveal();
   return (
     <div className="bg-animated">
 

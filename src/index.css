@@ -2,7 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================================================= */
+/* GLOBAL THEME VARIABLES                            */
+/* ================================================= */
 
+/* DARK THEME (DEFAULT) */
+:root{
+  --bg-main:#020617;
+  --bg-secondary:#0f172a;
+  --card-bg:rgba(255,255,255,0.04);
+  --text-main:#e2e8f0;
+  --text-secondary:#94a3b8;
+  --border-color:rgba(255,255,255,0.1);
+  --accent:#06b6d4;
+}
+
+/* LIGHT THEME */
+[data-theme="light"]{
+  --bg-main:#f8fafc;
+  --bg-secondary:#ffffff;
+  --card-bg:rgba(0,0,0,0.03);
+  --text-main:#0f172a;
+  --text-secondary:#475569;
+  --border-color:rgba(0,0,0,0.1);
+  --accent:#2563eb;
+}
+/* ================= LIGHT THEME COLOR SYSTEM ================= */
+
+[data-theme="light"]{
+  --bg-main:#f4f7fb;
+  --bg-card:#ffffff;
+  --text-main:#0f172a;
+  --text-soft:#475569;
+  --border-soft:rgba(0,0,0,0.08);
+
+  /* section accents */
+  --hero-accent:#4f46e5;
+  --about-accent:#0d9488;
+  --exp-accent:#2563eb;
+  --proj-accent:#6366f1;
+  --skill-accent:#16a34a;
+  --cert-accent:#9333ea;
+  --contact-accent:#ea580c;
+}
+/* light mode readable */
+[data-theme="light"] section{
+  background:#ffffff !important;
+}
 /* ========================= */
 /* GLOBAL */
 /* ========================= */
@@ -12,24 +58,12 @@ scroll-behavior:smooth;
 }
 
 body{
-
-margin:0;
-
-font-family:Inter,sans-serif;
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#020617,
-#020617,
-#020617
-);
-
-color:white;
-
-padding-top:80px;
-
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg-main);
+  color:var(--text-main);
+  padding-top:80px;
+  transition:background 0.35s ease,color 0.35s ease;
 }
 
 
@@ -71,7 +105,7 @@ z-index:1000;
 
 /* crystal glass effect */
 
-background:rgba(2,6,23,0.5);
+background:color-mix(in srgb, var(--bg-main) 85%, transparent);
 
 backdrop-filter:blur(20px);
 -webkit-backdrop-filter:blur(20px);
@@ -131,14 +165,12 @@ gap:32px;
 /* MENU LINKS */
 
 .navbar-link{
-
-color:#cbd5e1;
-
-font-size:17px;
-
-transition:0.3s;
-
+  text-decoration: none;
+  color:var(--text-secondary);
+  font-size:17px;
+  transition:0.3s;
 }
+
 
 .navbar-link:hover{
 
@@ -177,124 +209,71 @@ align-items:center;
 }
 
 
-/* ========================= */
-/* HERO BACKGROUND */
-/* ========================= */
+/* ================================================= */
+/* UNIQUE COLOR THEME PER SECTION                    */
+/* ================================================= */
 
-.hero-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#0f172a,
-#1e1b4b,
-#020617
-);
-
+/* HERO — FUTURISTIC */
+.hero-section{
+  --section-bg:
+    radial-gradient(circle at 30% 20%, rgba(59,130,246,0.25), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(139,92,246,0.25), transparent 40%),
+    linear-gradient(135deg,#020617,#020617);
+  background:var(--section-bg);
 }
 
-
-/* ========================= */
-/* ABOUT BACKGROUND */
-/* ========================= */
-
-.about-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#0f172a,
-#1e293b,
-#020617
-);
-
+/* ABOUT — PROFESSIONAL TRUST (TEAL) */
+.about-section{
+  --section-bg:
+    radial-gradient(circle at 80% 20%, rgba(20,184,166,0.25), transparent 45%),
+    linear-gradient(135deg,#020617,#031525);
+  background:var(--section-bg);
 }
 
-
-/* ========================= */
-/* EXPERIENCE BACKGROUND */
-/* ========================= */
-
-.experience-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#1e3a8a,
-#020617
-);
-
+/* EXPERIENCE — CORPORATE BLUE */
+.experience-section{
+  --section-bg:
+    radial-gradient(circle at 20% 40%, rgba(37,99,235,0.25), transparent 45%),
+    linear-gradient(135deg,#020617,#0b1f4b);
+  background:var(--section-bg);
 }
 
-
-/* ========================= */
-/* PROJECTS BACKGROUND */
-/* ========================= */
-
-.projects-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#312e81,
-#020617
-);
-
+/* PROJECTS — PRODUCT INDIGO */
+.projects-section{
+  --section-bg:
+    radial-gradient(circle at 60% 20%, rgba(99,102,241,0.30), transparent 45%),
+    linear-gradient(135deg,#020617,#15123a);
+  background:var(--section-bg);
 }
 
-
-/* ========================= */
-/* SKILLS BACKGROUND */
-/* ========================= */
-
-.skills-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#0f766e,
-#020617
-);
-
+/* SKILLS — TECH MATRIX GREEN */
+.skills-section{
+  --section-bg:
+    radial-gradient(circle at 40% 20%, rgba(16,185,129,0.25), transparent 45%),
+    linear-gradient(135deg,#020617,#05251c);
+  background:var(--section-bg);
 }
 
-
-/* ========================= */
-/* CERTIFICATES BACKGROUND */
-/* ========================= */
-
-.certificates-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#581c87,
-#020617
-);
-
+/* CERTIFICATES — ACHIEVEMENT PURPLE */
+.certificates-section{
+  --section-bg:
+    radial-gradient(circle at 80% 30%, rgba(168,85,247,0.30), transparent 45%),
+    linear-gradient(135deg,#020617,#2a0f44);
+  background:var(--section-bg);
 }
 
+/* CONTACT — CALL TO ACTION ORANGE */
+.contact-section{
+  --section-bg:
+    radial-gradient(circle at 20% 30%, rgba(249,115,22,0.28), transparent 45%),
+    linear-gradient(135deg,#020617,#3a1907);
+  background:var(--section-bg);
+}
 
-/* ========================= */
-/* CONTACT BACKGROUND */
-/* ========================= */
-
-.contact-bg{
-
-background:
-linear-gradient(
-135deg,
-#020617,
-#1e293b,
-#020617
-);
-
+/* FOOTER — ELEGANT */
+.footer-section{
+  background:
+    linear-gradient(180deg,#020617,#01030a);
 }
 
 
@@ -303,21 +282,13 @@ linear-gradient(
 /* ========================= */
 
 .card{
-
-background:rgba(255,255,255,0.05);
-
-border-radius:16px;
-
-padding:30px;
-
-border:1px solid rgba(255,255,255,0.1);
-
-backdrop-filter:blur(15px);
-
-transition:0.4s;
-
+  background:var(--card-bg);
+  border-radius:16px;
+  padding:30px;
+  border:1px solid var(--border-color);
+  backdrop-filter:blur(15px);
+  transition:0.4s;
 }
-
 
 /* CARD HOVER */
 
@@ -766,18 +737,14 @@ box-shadow:
 
 .about-avatar{
 
-width:120px;
+width: 120px;
 height:120px;
-
 border-radius:50%;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 font-size:40px;
 font-weight:bold;
-
 background:
 linear-gradient(135deg,#06b6d4,#8b5cf6);
 
@@ -817,7 +784,7 @@ font-weight:bold;
 margin-bottom:20px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-
+  text-shadow:0 0 18px rgba(20,184,166,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
@@ -955,7 +922,7 @@ font-weight:bold;
 margin-bottom:60px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-
+text-shadow:0 0 18px rgba(37,99,235,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
@@ -1192,7 +1159,7 @@ font-weight:bold;
 margin-bottom:30px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-
+text-shadow:0 0 18px rgba(99,102,241,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
@@ -1404,7 +1371,7 @@ font-weight:bold;
 margin-bottom:40px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-
+text-shadow:0 0 18px rgba(16,185,129,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
@@ -1572,7 +1539,7 @@ font-weight:bold;
 margin-bottom:40px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-
+text-shadow:0 0 18px rgba(168,85,247,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
@@ -1731,7 +1698,7 @@ font-weight:bold;
 margin-bottom:30px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-
+text-shadow:0 0 18px rgba(249,115,22,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
@@ -2116,4 +2083,301 @@ align-items:center;
 
 }
 
+}
+
+/* ===================================================== */
+/* UNIVERSAL SCROLL ANIMATIONS (Portfolio Secret Sauce)  */
+/* ===================================================== */
+
+/* hidden state */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 0.9s cubic-bezier(.17,.55,.55,1);
+}
+
+/* visible state */
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* left animation */
+.reveal-left{
+  opacity:0;
+  transform:translateX(-80px);
+  transition:all 1s cubic-bezier(.17,.55,.55,1);
+}
+.reveal-left.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* right animation */
+.reveal-right{
+  opacity:0;
+  transform:translateX(80px);
+  transition:all 1s cubic-bezier(.17,.55,.55,1);
+}
+.reveal-right.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* zoom animation */
+.reveal-zoom{
+  opacity:0;
+  transform:scale(0.85);
+  transition:all 0.9s ease;
+}
+.reveal-zoom.active{
+  opacity:1;
+  transform:scale(1);
+}
+/* ================================================= */
+/* HERO CINEMATIC EFFECTS                            */
+/* ================================================= */
+
+/* animated background aura */
+.hero-aura{
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(59,130,246,0.35), transparent 60%);
+  filter:blur(120px);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  animation:auraMove 12s infinite alternate ease-in-out;
+}
+
+@keyframes auraMove{
+  0%{transform:translate(-50%,-50%) scale(1);}
+  100%{transform:translate(-48%,-52%) scale(1.2);}
+}
+
+/* glowing typing role */
+.glow-text{
+  text-shadow:
+  0 0 10px rgba(6,182,212,0.7),
+  0 0 20px rgba(6,182,212,0.5),
+  0 0 40px rgba(6,182,212,0.3);
+}
+
+/* animated gradient name */
+.hero-name{
+  background-size:200% 200%;
+  animation:gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* floating buttons */
+.floating-btn{
+  animation:floatBtn 4s ease-in-out infinite;
+}
+
+.floating-btn:nth-child(2){
+  animation-delay:0.6s;
+}
+.floating-btn:nth-child(3){
+  animation-delay:1.2s;
+}
+
+@keyframes floatBtn{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0);}
+}
+
+/* hero content above 3d */
+.hero-content{
+  position:relative;
+  z-index:5;
+}
+/* light mode section correction */
+[data-theme="light"] .hero-section,
+[data-theme="light"] .about-section,
+[data-theme="light"] .experience-section,
+[data-theme="light"] .projects-section,
+[data-theme="light"] .skills-section,
+[data-theme="light"] .certificates-section,
+[data-theme="light"] .contact-section,
+[data-theme="light"] .footer-section{
+  background:linear-gradient(180deg,#ffffff,#f1f5f9);
+}
+/* ================================================= */
+/* LIGHT MODE GLOBAL TEXT FIX                        */
+/* ================================================= */
+
+[data-theme="light"] body{
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+
+/* all paragraphs */
+[data-theme="light"] p{
+  color:var(--text-soft);
+}
+
+/* navbar */
+[data-theme="light"] .navbar{
+  background:rgba(255,255,255,0.75);
+  border-bottom:1px solid var(--border-soft);
+  backdrop-filter:blur(18px);
+}
+
+/* links */
+[data-theme="light"] .navbar-link{
+  color:var(--text-main);
+}
+[data-theme="light"] .navbar-link:hover{
+  color:var(--hero-accent);
+}
+
+/* cards */
+[data-theme="light"] .card,
+[data-theme="light"] .skills-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .cert-card,
+[data-theme="light"] .timeline-card,
+[data-theme="light"] .about-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+/* ================================================= */
+/* LIGHT MODE SECTION COLOR PERSONALITY              */
+/* ================================================= */
+
+/* HERO */
+[data-theme="light"] .hero-section{
+  background:
+  radial-gradient(circle at 20% 20%, rgba(79,70,229,0.15), transparent 40%),
+  linear-gradient(180deg,#ffffff,#eef2ff);
+}
+[data-theme="light"] .hero-role{
+  color:var(--hero-accent);
+  text-shadow:0 0 12px rgba(79,70,229,0.25);
+}
+
+/* ABOUT */
+[data-theme="light"] .about-section{
+  background:linear-gradient(180deg,#ffffff,#ecfeff);
+}
+[data-theme="light"] .about-title{
+  color:var(--about-accent);
+}
+
+/* EXPERIENCE */
+[data-theme="light"] .experience-section{
+  background:linear-gradient(180deg,#ffffff,#eff6ff);
+}
+[data-theme="light"] .timeline-dot{
+  background:var(--exp-accent);
+  box-shadow:0 0 12px rgba(37,99,235,0.4);
+}
+
+/* PROJECTS */
+[data-theme="light"] .projects-section{
+  background:linear-gradient(180deg,#ffffff,#eef2ff);
+}
+[data-theme="light"] .filter-btn.active{
+  background:var(--proj-accent);
+  color:white;
+}
+
+/* SKILLS */
+[data-theme="light"] .skills-section{
+  background:linear-gradient(180deg,#ffffff,#ecfdf5);
+}
+[data-theme="light"] .skill-progress{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+}
+
+/* CERTIFICATES */
+[data-theme="light"] .certificates-section{
+  background:linear-gradient(180deg,#ffffff,#faf5ff);
+}
+[data-theme="light"] .cert-icon{
+  background:rgba(147,51,234,0.12);
+  color:var(--cert-accent);
+}
+
+/* CONTACT */
+[data-theme="light"] .contact-section{
+  background:linear-gradient(180deg,#ffffff,#fff7ed);
+}
+[data-theme="light"] .contact-btn{
+  background:linear-gradient(90deg,#fb923c,#ea580c);
+  color:white;
+}
+.cert-click{
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  display:block;
+}
+
+.cert-click:hover{
+  transform:translateY(-10px) scale(1.02);
+}
+/* ================= CERTIFICATE MODAL VIEWER ================= */
+
+.cert-modal-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(6px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:20px;
+}
+
+.cert-modal-content{
+  position:relative;
+  width:90%;
+  max-width:900px;
+  height:85vh;
+  background:#020617;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);
+}
+
+.cert-frame{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+/* close button */
+.cert-close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:none;
+  background:#ef4444;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  z-index:10;
+  transition:0.3s;
+}
+
+.cert-close:hover{
+  transform:rotate(90deg) scale(1.1);
 }

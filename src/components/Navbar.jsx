@@ -1,10 +1,27 @@
-import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import React, { useState, useEffect } from "react";
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar = () => {
 
-  // mobile menu state
+  // mobile menu
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // theme state
+  const [theme, setTheme] = useState("dark");
+
+  // load saved theme when page opens
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  // apply theme to entire website
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   // menu items
   const menuItems = [
@@ -17,14 +34,19 @@ const Navbar = () => {
     { name: "Contact", id: "Contact" }
   ];
 
-  // toggle menu
+  // toggle mobile menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // close menu after click
+  // close mobile menu
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+
+  // toggle theme
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   return (
@@ -33,17 +55,14 @@ const Navbar = () => {
 
       <div className="container-custom navbar-container">
 
-        {/* LEFT SIDE LOGO */}
+        {/* LOGO */}
         <div className="navbar-logo">
           ANDRA SRINIVASULU
         </div>
 
-
-        {/* RIGHT SIDE MENU (DESKTOP) */}
-        <div className="navbar-menu">
-
+        {/* DESKTOP MENU */}
+        <div className="navbar-menu desktop-menu">
           {menuItems.map((item) => (
-
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -51,33 +70,25 @@ const Navbar = () => {
             >
               {item.name}
             </a>
-
           ))}
-
         </div>
 
+        {/* THEME BUTTON */}
+        <div className="theme-toggle" onClick={toggleTheme}>
+          {theme === "dark" ? <FiSun /> : <FiMoon />}
+        </div>
 
-        {/* MOBILE TOGGLE BUTTON */}
+        {/* MOBILE BUTTON */}
         <div className="navbar-toggle" onClick={toggleMenu}>
-
-          {menuOpen ? (
-            <FiX />
-          ) : (
-            <FiMenu />
-          )}
-
+          {menuOpen ? <FiX /> : <FiMenu />}
         </div>
 
       </div>
 
-
       {/* MOBILE MENU */}
       {menuOpen && (
-
-        <div className="navbar-menu active">
-
+        <div className="navbar-menu mobile-menu">
           {menuItems.map((item) => (
-
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -86,17 +97,12 @@ const Navbar = () => {
             >
               {item.name}
             </a>
-
           ))}
-
         </div>
-
       )}
 
     </nav>
-
   );
-
 };
 
 export default Navbar;
