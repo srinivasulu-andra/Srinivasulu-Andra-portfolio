@@ -2,24 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ================================================= */
-/* GLOBAL THEME VARIABLES                            */
-/* ================================================= */
-
+/* GLOBAL THEME VARIABLES */
 /* DARK THEME (DEFAULT) */
 :root{
   --bg-main:#020617;
   --bg-secondary:#0f172a;
   --card-bg:rgba(255,255,255,0.04);
-  --text-main:#e2e8f0;
-  --text-secondary:#94a3b8;
+  --text-main:#eaeaef;
+  --text-secondary:#36383c;
   --border-color:rgba(255,255,255,0.1);
   --accent:#06b6d4;
 }
 
 /* LIGHT THEME */
 [data-theme="light"]{
-  --bg-main:#f8fafc;
+  --bg-main:#f5f7f9;
   --bg-secondary:#ffffff;
   --card-bg:rgba(0,0,0,0.03);
   --text-main:#0f172a;
@@ -27,13 +24,14 @@
   --border-color:rgba(0,0,0,0.1);
   --accent:#2563eb;
 }
+
 /* ================= LIGHT THEME COLOR SYSTEM ================= */
 
 [data-theme="light"]{
   --bg-main:#f4f7fb;
   --bg-card:#ffffff;
   --text-main:#0f172a;
-  --text-soft:#475569;
+  --text-soft:#090e15;
   --border-soft:rgba(0,0,0,0.08);
 
   /* section accents */
@@ -49,9 +47,8 @@
 [data-theme="light"] section{
   background:#ffffff !important;
 }
-/* ========================= */
+
 /* GLOBAL */
-/* ========================= */
 
 html{
 scroll-behavior:smooth;
@@ -67,9 +64,7 @@ body{
 }
 
 
-/* ========================= */
 /* CONTAINER */
-/* ========================= */
 
 .container-custom{
 
@@ -84,9 +79,7 @@ width:100%;
 }
 
 
-/* ========================= */
 /* NAVBAR */
-/* ========================= */
 
 .navbar{
 
@@ -192,9 +185,7 @@ cursor:pointer;
 }
 
 
-/* ========================= */
 /* SECTION BASE */
-/* ========================= */
 
 .section{
 
@@ -209,9 +200,7 @@ align-items:center;
 }
 
 
-/* ================================================= */
 /* UNIQUE COLOR THEME PER SECTION                    */
-/* ================================================= */
 
 /* HERO — FUTURISTIC */
 .hero-section{
@@ -277,9 +266,8 @@ align-items:center;
 }
 
 
-/* ========================= */
+
 /* GLASS CARD */
-/* ========================= */
 
 .card{
   background:var(--card-bg);
@@ -305,9 +293,7 @@ box-shadow:
 }
 
 
-/* ========================= */
 /* FUTURISTIC GLOW EFFECTS */
-/* ========================= */
 
 .glow-blue{
 
@@ -331,9 +317,8 @@ box-shadow:
 }
 
 
-/* ========================= */
+
 /* TEXT GRADIENT */
-/* ========================= */
 
 .gradient-text{
 
@@ -351,9 +336,7 @@ linear-gradient(
 }
 
 
-/* ========================= */
 /* HERO CARD */
-/* ========================= */
 
 .hero-card{
 
@@ -375,9 +358,7 @@ box-shadow:
 }
 
 
-/* ========================= */
 /* MOBILE */
-/* ========================= */
 
 @media(max-width:768px){
 
@@ -394,9 +375,8 @@ display:block;
 }
 
 }
-/* ========================= */
+
 /* HERO SECTION */
-/* ========================= */
 
 .hero-section{
 
@@ -423,9 +403,8 @@ display:block;
 }
 
 
-/* ========================= */
+
 /* 3D BACKGROUND */
-/* ========================= */
 
 .hero-3d-bg{
 
@@ -444,9 +423,8 @@ display:block;
 }
 
 
-/* ========================= */
+
 /* HERO CONTENT */
-/* ========================= */
 
 .hero-content{
 
@@ -463,9 +441,7 @@ display:block;
 }
 
 
-/* ========================= */
 /* HELLO TEXT */
-/* ========================= */
 
 .hero-small-text{
 
@@ -480,9 +456,8 @@ display:block;
 }
 
 
-/* ========================= */
+
 /* NAME */
-/* ========================= */
 
 .hero-name{
 
@@ -507,9 +482,7 @@ display:block;
 }
 
 
-/* ========================= */
 /* ROLE */
-/* ========================= */
 
 .hero-role{
 
@@ -522,9 +495,7 @@ display:block;
 }
 
 
-/* ========================= */
 /* DESCRIPTION */
-/* ========================= */
 
 .hero-description{
 
@@ -539,9 +510,7 @@ display:block;
 }
 
 
-/* ========================= */
 /* BUTTON CONTAINER */
-/* ========================= */
 
 .hero-buttons{
 
@@ -560,9 +529,7 @@ display:block;
 }
 
 
-/* ========================= */
 /* PRIMARY BUTTON */
-/* ========================= */
 
 .btn-primary{
 
@@ -598,9 +565,7 @@ display:block;
 }
 
 
-/* ========================= */
 /* GLASS BUTTON */
-/* ========================= */
 
 .btn-glass{
 
@@ -784,7 +749,7 @@ font-weight:bold;
 margin-bottom:20px;
 
 background:linear-gradient(90deg,#06b6d4,#3b82f6);
-  text-shadow:0 0 18px rgba(20,184,166,0.4);
+text-shadow:0 0 18px rgba(20,184,166,0.4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 

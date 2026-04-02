@@ -76,16 +76,17 @@ export default function Hero() {
 
           <a
             href="../public/certificates/resume.pdf"
-            className="btn-glass floating-btn"
+            className="btn-primary floating-btn"
             target="_blank"
             rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
             download
           >
             <FaDownload />
             Resume
           </a>
 
-          <button className="btn-glass floating-btn" onClick={() => document.getElementById("Contact").scrollIntoView({ behavior: "smooth" })}>
+          <button className="btn-primary floating-btn" onClick={() => document.getElementById("Contact").scrollIntoView({ behavior: "smooth" })}>
             <FaEnvelope />
             Contact Me
           </button>
